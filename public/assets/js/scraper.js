@@ -1,10 +1,17 @@
+
+
+
 // Grab the articles as a json
+
+$(document).on("click", "#make-new", function() {
+
 $.getJSON("/articles", function(data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+    $("#articles").append("<p data-id='" + data[i]._id + "'>" + "<a target=_blank href=http://www.drf.com"+data[i].link+">"+data[i].title+"</a>" + "<br />" + "</p>");
   }
+});
 });
 
 
