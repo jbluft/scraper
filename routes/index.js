@@ -9,5 +9,7 @@ module.exports = function(app) {
     app.get('/articles', stories.HelloArticles);
     app.get('/articles/:id', notesies.HelloArticlesID);
     app.post('/articles/:id', notesies.HelloArticlesNote);
+    app.get('/save/:id', stories.update);
+    app.get('/showsaved/', stories.saved);
 
 }

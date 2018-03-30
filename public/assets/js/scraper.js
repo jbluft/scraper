@@ -9,14 +9,39 @@ $.getJSON("/articles", function(data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + "<a target=_blank href=http://www.drf.com"+data[i].link+">"+data[i].title+"</a>" + "<br />" + "</p>");
-  }
+    $("#articles").append("<p data-id='" + data[i]._id + "'>" + "<a target=_blank href=http://www.drf.com"+data[i].link+">"+data[i].title+"</a>" + "<br />" + "<button class='save-this' data-id='" + data[i]._id + "'>Save Article</button>" +  " " + "<button class='add-note' data-id='" + data[i]._id + "'>Add Note</button>"+"</p>");
+    }
+  });
 });
+
+
+$(document).on("click", "#show-saved", function() {
+  $("#articles").empty();
+
+  $.getJSON("/showsaved", function(data) {
+    // For each one
+    for (var i = 0; i < data.length; i++) {
+      // Display the apropos information on the page
+      $("#articles").append("<p data-id='" + data[i]._id + "'>" + "<a target=_blank href=http://www.drf.com"+data[i].link+">"+data[i].title+"</a>" + "<br />" + "<button class='save-this' data-id='" + data[i]._id + "'>Save Article</button>" +  " " + "<button class='add-note' data-id='" + data[i]._id + "'>Add Note</button>"+"</p>");
+      }
+    });
+  });
+
+
+$(document).on("click", ".save-this", function() {
+  var thisId = $(this).attr("data-id");
+  console.log(thisId);
+  $.ajax({
+    type: "GET",
+    url: "/save/" + thisId
+  });
+  // getRead();
 });
+
 
 
 // Whenever someone clicks a p tag
-$(document).on("click", "p", function() {
+$(document).on("click", ".add-note", function() {
   // Empty the notes from the note section
   $("#notes").empty();
   // Save the id from the p tag
