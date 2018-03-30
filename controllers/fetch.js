@@ -2,7 +2,8 @@ var express = require("express");
 
 // Require all models
 var db = require("../models");
-
+var axios = require("axios");
+var cheerio = require("cheerio");
 
 module.exports = {
   HelloWorld: function(req, res){

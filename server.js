@@ -56,7 +56,7 @@ app.use(router);
 
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/week18Populater");
+mongoose.connect("mongodb://localhost/mongoHeadlines");
 
 // Routes
 
