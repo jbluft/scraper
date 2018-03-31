@@ -9,7 +9,7 @@ $.getJSON("/articles", function(data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + "<a target=_blank href=http://www.drf.com"+data[i].link+">"+data[i].title+"</a>" + "<br />" + "<button class='save-this' data-id='" + data[i]._id + "'>Save Article</button>" +  " " + "<button class='add-note' data-id='" + data[i]._id + "'>Add Note</button>"+"</p>");
+    $("#articles").append("<p data-id='" + data[i]._id + "'>" + "<a class='story' target=_blank href=http://www.drf.com"+data[i].link+">"+data[i].title+"</a>" + "<br />" + "<button class='save-this' data-id='" + data[i]._id + "'>Save Article</button>" +  " " + "<button class='add-note' data-id='" + data[i]._id + "'>Add Note</button>"+"</p>");
     }
   });
 });
@@ -22,7 +22,7 @@ $(document).on("click", "#show-saved", function() {
     // For each one
     for (var i = 0; i < data.length; i++) {
       // Display the apropos information on the page
-      $("#articles").append("<p data-id='" + data[i]._id + "'>" + "<a target=_blank href=http://www.drf.com"+data[i].link+">"+data[i].title+"</a>" + "<br />" + "<button class='save-this' data-id='" + data[i]._id + "'>Save Article</button>" +  " " + "<button class='add-note' data-id='" + data[i]._id + "'>Add Note</button>"+"</p>");
+      $("#articles").append("<p data-id='" + data[i]._id + "'>" + "<a target=_blank href=http://www.drf.com"+data[i].link+">"+data[i].title+"</a>" + "<br />" + "<button class='remove-this' data-id='" + data[i]._id + "'>Remove Article</button>" +  " " + "<button class='add-note' data-id='" + data[i]._id + "'>Add Note</button>"+"</p>");
       }
     });
   });
@@ -36,6 +36,16 @@ $(document).on("click", ".save-this", function() {
     url: "/save/" + thisId
   });
   // getRead();
+});
+
+$(document).on("click", ".remove-this", function() {
+  var thisId = $(this).attr("data-id");
+  console.log(thisId);
+  $.ajax({
+    type: "GET",
+    url: "/remove/" + thisId
+  });
+location.reload();
 });
 
 

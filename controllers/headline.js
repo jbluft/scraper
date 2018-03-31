@@ -24,6 +24,28 @@ module.exports = {
     },
 
 
+    remove: function(req, res) {
+
+      db.Headline.remove(
+        {
+          _id: mongojs.ObjectId(req.params.id)
+        },
+        // When that's done, run this function
+        function(error, edited) {
+          // show any errors
+          if (error) {
+            console.log(error);
+            res.send(error);
+          }
+          else {
+            // Otherwise, send the result of our update to the browser
+            console.log(edited);
+            // res.send(edited);
+          }
+        }
+      );
+    },
+
 
     update: function(req, res) {
 

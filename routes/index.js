@@ -11,5 +11,6 @@ module.exports = function(app) {
     app.post('/articles/:id', notesies.HelloArticlesNote);
     app.get('/save/:id', stories.update);
     app.get('/showsaved/', stories.saved);
+    app.get('/remove/:id', stories.remove);
 
 }
