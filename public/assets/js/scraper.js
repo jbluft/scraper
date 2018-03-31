@@ -35,6 +35,7 @@ $(document).on("click", ".save-this", function() {
     type: "GET",
     url: "/save/" + thisId
   });
+  alert("Article saved!")
   // getRead();
 });
 

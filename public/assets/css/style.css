@@ -1,22 +1,32 @@
-body { background-color: #F2F6D0 }
+body {
+  background-image: url('../images/horses.jpg');
+  background-size: auto;
+}
+
+.btn {
+  margin: 10px;
+}
+
+a {
+  font-weight: bold;
+}
 
 a:hover { 
-  background-color: black;
-  color: white;
-  text-decoration: none;
+  background-color: white;
+  font-weight: bolder;
 }
 
 #wrapper {
   width: 960px;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 5%;
 }
+
 #articles {
   display: inline-block;
   overflow: auto;
   width: 60%;
-  height: 700px;
+  /* height: 700px; */
 }
 #notes {
   float: right;
@@ -25,7 +35,7 @@ a:hover {
 textarea, input {
   display: block;
   width: 100%;
-  background-color: #FCF5C7;
+  background-color: aqua;
 }
 input {
   height: 36px;
