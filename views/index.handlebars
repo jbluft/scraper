@@ -10,22 +10,35 @@
     </ul>
   </div>
 </nav>
-{{!-- 
-<div class="jumbotron text-center">
-  <div class="overlay">
-  </div>
-  <div class="background-image">
-  </div>
-  <div>
-  <h2><i>"You may be walking around lucky and not even know it"</i></h2>
-  </div>
-</div> --}}
 
+
+<div class="row">
 
     <div id="wrapper">
      <div id="articles"></div>
       <div id="notes"></div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    {{!-- <script src="scraper.js"></script> --}}
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="savedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Article Saved!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Click on the "Saved Articles" button to view your saved articles.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 

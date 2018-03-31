@@ -31,11 +31,12 @@ $(document).on("click", "#show-saved", function() {
 $(document).on("click", ".save-this", function() {
   var thisId = $(this).attr("data-id");
   console.log(thisId);
+  $('#savedModal').modal('show');
   $.ajax({
     type: "GET",
     url: "/save/" + thisId
   });
-  alert("Article saved!")
+  // alert("Article saved!")
   // getRead();
 });
 
